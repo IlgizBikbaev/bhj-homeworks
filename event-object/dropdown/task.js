@@ -1,4 +1,4 @@
-const selection = document.querySelectorAll(".dropdown__value");
+const selection  = document.querySelector(".dropdown__value");
 const list = document.querySelector(".dropdown__list");
 const listText = document.querySelectorAll(".dropdown__link");
 
