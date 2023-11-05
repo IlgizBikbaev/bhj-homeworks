@@ -18,6 +18,7 @@ window.addEventListener('click', (e) => {
 });
 
 window.addEventListener('click', (e) => {
+  
   if (e.target.classList.contains("product__add")) {
     const cart = e.target.closest(".product");
     const cartId = cart.dataset.id;
@@ -25,9 +26,11 @@ window.addEventListener('click', (e) => {
     const cartCount = cart.querySelector(".product__quantity-value").innerText;
     const cartsIn = document.querySelector(".cart__products");
     const elInCart = cartsIn.querySelector(`[data-id="${cartId}"]`);
+
     if (elInCart) {
       const counterEl = elInCart.querySelector(".cart__product-count");
       counterEl.innerText = parseInt(counterEl.innerText) + parseInt(cartCount);
+      
     } else {
       cartsIn.insertAdjacentHTML('beforeend',
         `<div class="cart__product" data-id="${cartId}">
