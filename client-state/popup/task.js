@@ -1,18 +1,17 @@
 const modal = document.getElementById('subscribe-modal');
-//console.log(document.cookie);
+const close = document.querySelector('.modal__close');
 
-if (!document.cookie) {
-    modal.classList.add('modal_active');
+function getCookie(modal) {
+    var matches = document.cookie.match(new RegExp("(?:^|; )" + modal.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
 
+if (getCookie('modal') !== closed) {
+    modal.classList.add('modal_active');
+}
 
-const close = document.querySelector('.modal__close');
 close.addEventListener('click', () => {
     modal.classList.remove('modal_active');
-    document.cookie = 'modal=false';
-    console.log(document.cookie);
-});
-
-
-    
+    document.cookie = 'modal=closed';
+});  
